@@ -26,3 +26,8 @@ int main()
 
     return 0;
 }
+
+/*
+    Output: 11
+            21
+*/

@@ -1,4 +1,4 @@
-// Now we are going to make temp pointer
+// use of iteration to move from one node to another and count the number of nodes in linked list
 
 #include<stdio.h>
 
@@ -10,18 +10,18 @@ struct node
 };
 
 typedef struct node NODE;
-typedef struct node * PNODE;
+typedef struct node *PNODE;
 
 int main()
 {
     PNODE head = NULL;
     PNODE temp = NULL;
-
     NODE obj1,obj2,obj3;
 
+    int iCount = 0;
     head = &obj1;
-    
-     obj1.data = 11;
+
+    obj1.data = 11;
     obj1.next = &obj2;
 
     obj2.data = 21;
@@ -32,17 +32,22 @@ int main()
 
     temp = head;
 
-    printf("%d\n",temp -> data);
-    printf("%d\n",temp -> next -> data);
-    printf("%d\n",temp -> next -> next -> data);
+    while(temp != NULL)
+    {
+        
+        printf("%d\n",temp->data);
+        iCount++;
+        temp = temp -> next;
+    }
+
+    printf("Numbers of node are : %d\n ",iCount);
 
     return 0;
-
 }
 
 /*
     Output: 11
             21
             51
-
+            Numbers of node are : 3
 */

@@ -29,8 +29,14 @@ int main()
     obj3.next = NULL;
 
     printf("%u\n",head->data);
-    ptintf("%u\n",head->next->data);
+    printf("%u\n",head->next->data);
     printf("%u\n",head->next->next->data); 
     
     return 0;
 }
+
+/*
+    Output: 11
+            21
+            51
+*/
