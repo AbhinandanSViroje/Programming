@@ -59,11 +59,11 @@ void InsertFirst(PPNODE first, int iNo)
     newn -> data = iNo;
     newn -> next = NULL;
 
-    if(*first == NULL)
+    if(*first == NULL)                   // linked list is empty
     {
         *first = newn;
     }
-    else
+    else                                // Linked List contains atleast one node
     {
         newn -> next = *first;
         *first = newn;

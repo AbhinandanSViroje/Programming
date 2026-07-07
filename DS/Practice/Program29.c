@@ -48,7 +48,7 @@ int Count(PNODE first)
 {
     int iCount = 0;
 
-    while(first != NULL)            
+    while(first != NULL)
     {
         iCount++;
         first = first -> next;
@@ -65,11 +65,11 @@ void InsertFirst(PPNODE first, int iNo)
     newn -> data = iNo;
     newn -> next = NULL;
 
-    if(*first == NULL)                       // linked list is empty
+    if(NULL == *first)              // Modern compilers usually warn you if you accidentally write = instead of ==.   //This is an old C programming style called Yoda conditions.
     {
         *first = newn;
     }
-    else                                     // Linked List contains atleast one node
+    else
     {
         newn -> next = *first;
         *first = newn;
@@ -86,7 +86,7 @@ void InsertLast(PPNODE first, int iNo)
     newn -> data = iNo;
     newn -> next = NULL;
 
-    if(*first == NULL)
+    if(NULL == *first)
     {
         *first = newn;
     }
@@ -140,3 +140,4 @@ int main()
     Output : | 11 | ->| 21 | ->| 51 | ->| 101 | -> NULL
               Number of nodes are : 4
 */
+

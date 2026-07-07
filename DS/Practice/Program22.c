@@ -36,7 +36,7 @@ typedef struct node **PPNODE;
 
 void Display(PNODE first)
 {
-    while(first != NULL)
+    while(first != NULL)             
     {
         printf("%d\n", first->data);
         first = first -> next;
@@ -58,11 +58,11 @@ void InsertFirst(PPNODE first, int iNo)
     newn -> data = iNo;
     newn -> next = NULL;
 
-    if(*first == NULL)
+    if(*first == NULL)                  // linked list is empty
     {
         *first = newn;
     }
-    else
+    else                                // Linked List contains atleast one node
     {
         newn -> next = *first;
         *first = newn;
