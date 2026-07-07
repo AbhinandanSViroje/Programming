@@ -3,7 +3,7 @@
 #include<stdio.h>
 #include<stdlib.h>
 
-#pragma pack(1)
+
 struct node 
 {
     int data;
@@ -55,7 +55,7 @@ void DeleteAtPos(PPNODE first, int iPos)
 }
 int main()
 {
-
+    PNODE head = NULL;
 
     return 0;
 }
