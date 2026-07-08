@@ -65,7 +65,7 @@ void InsertFirst(PPNODE first, int iNo)
     newn -> data = iNo;
     newn -> next = NULL;
 
-    if(NULL = *first)              // Error
+    if(NULL = *first)              // Error: This assigns NULL to *first, and the condition becomes false. The compiler (especially older C compilers) might not warn you.
     {
         *first = newn;
     }
