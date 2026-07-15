@@ -1,4 +1,4 @@
-// Singly Linked list in C++ TEMPLATE
+// Singly Linked list in C++ only InserFirst and InsertLast 
 
 #include<iostream>
 using namespace std;
@@ -43,11 +43,53 @@ int SinglyLL :: count()
     return 0;
 }
 void SinglyLL :: InsertFirst(int iNo)
-{}
+{
+    PNODE newn = NULL;
+
+    newn = new NODE;
+
+    newn->data = iNo;
+    newn -> next = NULL;
+
+    if(this->first == NULL)
+    {
+        this->first = newn;
+    }
+    else
+    {
+        newn->next = this->first;
+        this->first = newn;
+    }
+}
 void SinglyLL :: InsertLast(int iNo)
-{}
+{
+    PNODE newn = NULL;
+    PNODE temp = NULL;
+
+    newn = new NODE;
+
+    newn->data = iNo;
+    newn -> next = NULL;
+
+    if(this->first == NULL)
+    {
+       this->first =  newn;
+    }
+    else
+    {
+      temp = this->first;
+
+      while(temp->next != NULL)
+      {
+        temp = temp->next;
+      }
+      temp->next = newn;
+    }
+}
 void SinglyLL :: InsertAtPos(int iNo, int iPos)
-{}
+{
+   
+}
 void SinglyLL :: DeleteFirst()
 {}
 void SinglyLL :: DeleteLast()
@@ -58,5 +100,14 @@ void SinglyLL :: DeleteAtPos(int iPos)
 int main()
 {
     SinglyLL obj;
+
+    obj.InsertFirst(51);
+    obj.InsertFirst(21);
+    obj.InsertFirst(11);
+
+    obj.InsertLast(101);
+    obj.InsertLast(111);
+    obj.InsertLast(121);
+
 
 }
