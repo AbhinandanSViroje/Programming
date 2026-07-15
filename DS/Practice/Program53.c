@@ -1,4 +1,4 @@
-// Doubly linear linked list (InserFirst,Inserlast)
+// Doubly linear linked list (Display,Count)
 
 #include<stdio.h>
 #include<stdlib.h>
@@ -18,11 +18,23 @@ typedef struct node **PPNODE;
 
 int Count(PNODE first)
 {
-    return 0;
+    int iCount = 0;
+    while(first != NULL)
+    {
+        iCount++;
+        first = first->next;     
+    }
+    return iCount;
 }
 void Display(PNODE first)
 {
-
+    printf("\n NULL <=> ");
+    while(first != NULL)
+    {
+        printf("| %d | <=> ", first -> data);
+        first = first -> next;
+    }
+    printf("NULL\n");
 }
 void InsertFirst(PPNODE first, int iNo)
 {
@@ -93,6 +105,8 @@ void DeleteAtPos(PPNODE first, int iPos)
 
 int main()
 {   
+    int iRet = 0;
+
     PNODE head = NULL;
 
     InsertFirst(&head,51);
@@ -102,6 +116,11 @@ int main()
     InsertLast(&head,101);
     InsertLast(&head,111);
     InsertLast(&head,121);
+
+    Display(head);
+
+    iRet = Count(head);
+    printf("The number of nodes are : %d \n",iRet);
 
     return 0;
 }
