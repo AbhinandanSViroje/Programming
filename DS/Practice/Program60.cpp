@@ -135,7 +135,7 @@ void DoublyLL :: InsertAtPos(int iNo , int iPos)
 
         temp = this->first;
 
-        for(i = 0; i < iPos-1; i++)
+        for(i = 1; i < iPos-1; i++)
         {
             temp = temp -> next;
         }
@@ -219,7 +219,7 @@ void DoublyLL :: DeleteAtPos(int iPos)
 
         temp = this->first;
 
-        for(i = 0; i < iPos-1; i++)
+        for(i = 1; i < iPos-1; i++)
         {
             temp = temp -> next;
         }
