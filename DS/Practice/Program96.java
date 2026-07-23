@@ -106,7 +106,8 @@ class SinglyLL
             {
                 temp = temp.next;
             } 
-            
+            newn.next = temp.next;
+            temp.next = newn;
             iCount++;
         }
     }
@@ -168,13 +169,13 @@ class SinglyLL
             DeleteLast();
         }
         else
-        {
+        {   
             temp = first;
             for( i = 1 ;i < iPos-1; i++)
             {
                 temp = temp.next;
             } 
-
+            temp.next = temp.next.next;
             iCount--;
         }
     }
@@ -208,6 +209,20 @@ class Program94
         System.out.println("Number of nodes are : "+iRet);
 
         sobj.DeleteLast();
+
+        sobj.Display();
+
+        iRet = sobj.Count();
+        System.out.println("Number of nodes are : "+iRet);
+
+        sobj.InsertAtPost(105,3);
+
+        sobj.Display();
+
+        iRet = sobj.Count();
+        System.out.println("Number of nodes are : "+iRet);
+
+        sobj.DeleteAtPost(3);
 
         sobj.Display();
 
