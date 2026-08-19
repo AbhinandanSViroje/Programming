@@ -12,17 +12,22 @@ class node
 
 class SinglyLL
 {
+    public node first;
+    public int iCount;
 
+    public SinglyLL()
+    {
+        System.out.println("Inside Constructor");
+        this.first = null;
+        this.iCount = 0;
+    }
 }
 
-class Program87
+class Program88
 {
    public static void main(String A[])
    {
-        node newn = new node(11);
-
-        System.out.println(newn.data);
-        System.out.println(newn.next);
+        SinglyLL sobj = new SinglyLL();
    }
 
 }
