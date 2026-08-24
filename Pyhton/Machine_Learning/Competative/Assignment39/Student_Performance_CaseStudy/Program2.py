@@ -1,5 +1,4 @@
 from sklearn.tree import DecisionTreeClassifier
-from sklearn.metrics import accuracy_score
 
 def main():
     Independent =[[35,1],

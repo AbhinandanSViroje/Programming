@@ -14,6 +14,8 @@ def main():
     #1 = pass , 2 = fail
     Dependent =[1,1,2,2,1,1,1,2]
 
+    dTest = [1,2]
+
     model = DecisionTreeClassifier()
 
     model = model.fit(Independent,Dependent)
@@ -21,6 +23,10 @@ def main():
 
     Result = model.predict([[52,1],[31,0]])
     print("Predictaed :",Result)
+
+    #Accuracy 
+    accuracy = accuracy_score(Result,dTest)
+    print("Accuracy of model is : ",accuracy*100)
 
 if __name__ == "__main__":
     main()

@@ -1,24 +1,32 @@
+import pandas as pd
+
 from sklearn.tree import DecisionTreeClassifier
 
+#step 1 : LoadData
+def LoadData(DataPath):
+
+    df = pd.read_csv(DataPath)
+    print("Data Loaded Successfully")
+
+    print("First five Data from CSV")
+    print(df.head())
+
+
+    X = df[["StudyHours","Attendance","PreviousScore","AssignmentsCompleted","SleepHours"]]
+    Y = df["FinalResult"]
+
+    X_train,X_test,Y_train,Y_Test = train_test_split(X,Y,test_size=0.5,random_state=42)
+
+
+    
+
 def main():
-    Independent =[[35,1],
-                  [85,1],
-                  [32,0],
-                  [25,0],
-                  [95,1],
-                  [75,1],
-                  [83,1],
-                  [52,1],
-                  [31,0],
-                  [34,0]]
-
-    #1 = pass , 2 = fail
-    Dependent =[1,1,2,2,1,1,1,1,2,2]
-
-    model = DecisionTreeClassifier()
-
-    model = model.fit(Independent,Dependent)
-    print("model train succuessfully")
+    #Step 1
+    df = LoadData("student_performance_ml.csv")
 
 if __name__ == "__main__":
     main()
+
+
+
+
