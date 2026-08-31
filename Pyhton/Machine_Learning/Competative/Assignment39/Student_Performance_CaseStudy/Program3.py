@@ -1,32 +1,68 @@
+import pandas as pd
+
 from sklearn.tree import DecisionTreeClassifier
-from sklearn.metrics import accuracy_score
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import accuracy_score,confusion_matrix
 
-def main():
-    Independent =[[35,1],
-                  [85,1],
-                  [32,0],
-                  [25,0],
-                  [95,1],
-                  [75,1],
-                  [83,1],
-                  [34,0]]
+#step 1 : LoadData
+def LoadData(DataPath):
 
-    #1 = pass , 2 = fail
-    Dependent =[1,1,2,2,1,1,1,2]
+    df = pd.read_csv(DataPath)
+    print("Data Loaded Successfully")
 
-    dTest = [1,2]
+    print("First five Data from CSV")
+    print(df.head())
 
+    return df
+
+#step 2 : Split the data
+def SplitData(df):
+    X = df[["StudyHours","Attendance","PreviousScore","AssignmentsCompleted","SleepHours"]]
+    Y = df["FinalResult"]
+
+    X_train,X_test,Y_train,Y_Test = train_test_split(X,Y,test_size=0.5,random_state=42)
+
+    return  X_train,X_test,Y_train,Y_Test
+
+#step 3 : Train the Model
+def TrainModel(X_train,Y_train):
     model = DecisionTreeClassifier()
 
-    model = model.fit(Independent,Dependent)
-    print("model train succuessfully")
+    model = model.fit(X_train,Y_train)
+    print("Data Train Successfully")
 
-    Result = model.predict([[52,1],[31,0]])
-    print("Predictaed :",Result)
+    return model
 
-    #Accuracy 
-    accuracy = accuracy_score(Result,dTest)
-    print("Accuracy of model is : ",accuracy*100)
+#step 4 : (Evaluate the model)Test  the Model
 
+def EvaluateData(model,X_test,Y_Test):
+    Y_pred = model.predict(X_test)
+    print("Predicted values :",Y_pred)
+    print("")
+    print("Actual Values :",Y_Test)
+
+    accuracy = accuracy_score(Y_pred,Y_Test)
+    print(f"The Accuracy Score is  : {accuracy:.2%}")
+
+
+    
+
+def main():
+    #Step 1
+    df = LoadData("student_performance_ml.csv")
+
+    #step2
+    X_train,X_test,Y_train,Y_Test = SplitData(df)
+
+    #step3
+    model = TrainModel(X_train,Y_train)
+
+    #Step4
+    EvaluateData(model,X_test,Y_Test)
+    
 if __name__ == "__main__":
     main()
+
+
+
+

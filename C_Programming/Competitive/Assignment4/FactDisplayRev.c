@@ -4,7 +4,7 @@ void FactRev(int iNo)
 {
     int i  = 0;
     int iTemp = iNo;
-    for(i = iTemp-1; i > 0; i--)
+    for(i = iNo-1; i > 0; i--)
     {
         if(iNo % i == 0)
         {
