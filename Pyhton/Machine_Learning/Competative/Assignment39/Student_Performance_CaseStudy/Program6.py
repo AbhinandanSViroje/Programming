@@ -2,7 +2,7 @@ import pandas as pd
 
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.model_selection import train_test_split
-from sklearn.metrics import accuracy_score,confusion_matrix
+from sklearn.metrics import accuracy_score
 
 #step 1 : LoadData
 def LoadData(DataPath):
@@ -70,25 +70,25 @@ def EvaluateData(model1,model2,model3,X_test,Y_Test,X_train,Y_train):
     # Accuracy  of Models
     print("Model1 : max_depth=1 : ")
     print(Border)
-    accuracy1 = accuracy_score(Y_pred1,Y_Test)
+    accuracy1 = accuracy_score(Y_Test,Y_pred1)
     print(f"The Accuracy Score of Testing model1 is  : {accuracy1:.2%}")
-    accuracy2 = accuracy_score(Y_train_Pred1,Y_train)
+    accuracy2 = accuracy_score( Y_train,Y_train_Pred1)
     print(f"The Accuracy Score of Trainning model1 is   : {accuracy2:.2%}")
     print(Border)
 
     print("Model2 : max_depth=3 : ")
     print(Border)
-    accuracy3 = accuracy_score(Y_pred2,Y_Test)
+    accuracy3 = accuracy_score(Y_Test,Y_pred2)
     print(f"The Accuracy Score of Testing model2 is  : {accuracy3:.2%}")
-    accuracy4 = accuracy_score(Y_train_Pred2,Y_train)
+    accuracy4 = accuracy_score(Y_train,Y_train_Pred2)
     print(f"The Accuracy2 Score of Trainning model2 is  : {accuracy4:.2%}")
     print(Border)
 
     print("Model3 : max_depth=None : ")
     print(Border)
-    accuracy5 = accuracy_score(Y_pred3,Y_Test)
+    accuracy5 = accuracy_score(Y_Test,Y_pred3)
     print(f"The Accuracy Score of Testing model3 is   : {accuracy5:.2%}")
-    accuracy6 = accuracy_score(Y_train_Pred3,Y_train)
+    accuracy6 = accuracy_score(Y_train,Y_train_Pred3)
     print(f"The Accuracy2 Score of Trainning model3 is  : {accuracy6:.2%}")
     print(Border)
     

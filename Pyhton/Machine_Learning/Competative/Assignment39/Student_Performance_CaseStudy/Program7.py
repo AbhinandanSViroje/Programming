@@ -38,7 +38,8 @@ def TrainModel(X_train,Y_train):
 def EvaluateData(model,X_test,Y_Test,X_train,Y_train):
     #prediction of student will pass or fail
 
-    X_New_Test = pd.DataFrame([[6,85,66,7,7]])
+    X_New_Test = pd.DataFrame([[6,85,66,7,7]],
+                          columns=["StudyHours","Attendance","PreviousScore","AssignmentsCompleted","SleepHours"])
     print("the prediction of new data : ")
     Y_pred = model.predict(X_New_Test)
     print("Predicted values :",Y_pred)
